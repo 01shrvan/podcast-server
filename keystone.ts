@@ -1,6 +1,8 @@
 import { config } from "@keystone-6/core";
 import { withAuth, session } from "./auth";
 import { User } from "./schemas/user";
+import { Artist } from "./schemas/artist";
+import { Podcast } from "./schemas/podcast";
 
 export default withAuth(
   config({
@@ -8,7 +10,7 @@ export default withAuth(
       provider: "sqlite",
       url: "file:./db.sqlite",
     },
-    lists: { User },
+    lists: { User, Artist, Podcast },
     session,
     ui: {
       isAccessAllowed: ({ session }) => {
